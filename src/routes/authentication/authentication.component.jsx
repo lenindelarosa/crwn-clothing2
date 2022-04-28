@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
-import { getRedirectResult } from 'firebase/auth';
+// import { useEffect } from 'react';
+// import { getRedirectResult } from 'firebase/auth';
 import SignUpForm from '../../components/sign-up-form/sign-up-form.component';
 import SignInForm from '../../components/sign-in-form/sign-in-form.component';
+import './authentication.styles.scss'
 
 import { 
     auth,
@@ -10,7 +11,7 @@ import {
     signInWithGoogleRedirect 
 } from "../../utils/firebase/firebase.utils";
 
-const SignIn = () => {
+const Authentication = () => {
     // ## This piece of code is to use when using google redirect, maintain the user information with the reloading of the page##
     // useEffect(async () => {
     //     const response = await getRedirectResult(auth);
@@ -20,25 +21,12 @@ const SignIn = () => {
     //     console.log(response);
     // }, [])
 
-    const logGoogleUser = async () => {
-        const { user } = await signInWithGooglePopup();
-        const userDocRef = await crearUserDocumentFromAuth(user);
-    };
-
-
     return (
-        <div>
-            <h1>This is the signin Page</h1>
-            <button onClick={logGoogleUser}>
-                Sign In With Google
-            </button>
+        <div className='sign-container'>
             <SignInForm />
             <SignUpForm />
-            {/* <button onClick={signInWithGoogleRedirect}>
-                Sign In With Google Redirect
-            </button> */}
         </div>
     );
 };
 
-export default SignIn;
+export default Authentication;
