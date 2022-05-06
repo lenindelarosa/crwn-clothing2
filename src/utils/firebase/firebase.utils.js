@@ -84,5 +84,4 @@ export const onAuthStateChangedListener = (callback) => {
   onAuthStateChanged(auth, callback)
 };
   
-
 export default firebase;
