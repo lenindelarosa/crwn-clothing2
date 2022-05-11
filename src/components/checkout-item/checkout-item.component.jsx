@@ -7,24 +7,28 @@ const CheckoutItem = ({ cartItem }) => {
     const { name, quantity, imageUrl, price } = cartItem;
     const { delItemFromCart, addItemToCart, removeItemFromCart, cartTotal } = useContext(CartContext);
 
-    const handleRemoveItem = () => removeItemFromCart(cartItem);
-
-    const handleAddItem = () => addItemToCart(cartItem);
-
-    const handleDelItem = () => delItemFromCart(cartItem);
+    const removeItemHandler = () => removeItemFromCart(cartItem);
+    const addItemHandler = () => addItemToCart(cartItem);
+    const deleteItemHandler = () => delItemFromCart(cartItem);
 
     return(
         <div className='checkout-item-container'>
-            <img src={imageUrl} alt={`${name}`} />
-            <span className='name'>{name}</span>
-            <div>
-                <span className='arrow' onClick={handleDelItem}>{'<  '}</span>
-                <span className='quantity'>{quantity}</span>
-                <span className='arrow' onClick={handleAddItem}>{'  >'}</span>
+            <div className='image-container'>
+                <img src={imageUrl} alt={`${name}`} />
             </div>
+            <span className='name'>{name}</span>
             
+            <span className='quantity'>
+                <div className='arrow' onClick={deleteItemHandler}>
+                    &#10094;
+                </div>
+                <span className='value'>{quantity}</span>
+                <div className='arrow' onClick={addItemHandler}>
+                    &#10095;
+                </div>
+            </span>
             <span className='price'>{price}</span>
-            <span className='remove' onClick={handleRemoveItem}>{'🗑'}</span>
+            <div className='remove-button' onClick={removeItemHandler}>&#10005;</div>
         </div>
     );
 };

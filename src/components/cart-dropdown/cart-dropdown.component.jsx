@@ -8,7 +8,7 @@ import './cart-dropdown.styles.scss'
 const CartDropdown = () => {
     const { cartItems, setIsCartOpen } = useContext(CartContext);
     const navigate = useNavigate();
-    const handleClick = () => {
+    const goToCheckoutHandler = () => {
         setIsCartOpen(false);
         navigate('/checkout')
     };
@@ -19,7 +19,7 @@ const CartDropdown = () => {
                 <CartItem key={item.id} cartItem={item}/>
                 ))}
             </div>
-            <Button onClick={handleClick}>GO TO CHECKOUT</Button>
+            <Button onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>
         </div>
     );
 };
