@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CategoriesContext } from '../../contexts/categories.contexts';
 
 import './category-display.styles.scss'
@@ -7,20 +7,27 @@ import ProductCard from '../../components/product-card/product-card.component';
 
 const CategoryDisplay = () => {
 
-const { id } = useParams();
+const { category } = useParams();
 const { categoriesMap } = useContext(CategoriesContext);
-const products = categoriesMap[id];
+const [products, setProducts] = useState(categoriesMap[category]);
+
+useEffect(() => {
+    setProducts(categoriesMap[category]);
+}, [category, categoriesMap]);
 
 return(
     <>
-        <h2>
-            <span className='title'>{id.toUpperCase()}</span>
-        </h2>
+        <div>
+            <h2>
+                <span className='category-display-title'>{category.toUpperCase()}</span>
+            </h2>
+        </div>
+
         <div className='category-display-container'>    
         {
-            products
+            products && products        //safegard in case products is not loaded yet. 
             .map((product) => (
-            <ProductCard key={product.id} product={product}></ProductCard>
+            <ProductCard key={product.id} product={product} />
             ))
         }
         </div>
