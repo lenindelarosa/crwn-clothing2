@@ -2,14 +2,7 @@
 // import { getRedirectResult } from 'firebase/auth';
 import SignUpForm from '../../components/sign-up-form/sign-up-form.component';
 import SignInForm from '../../components/sign-in-form/sign-in-form.component';
-import './authentication.styles.scss'
-
-import { 
-    auth,
-    signInWithGooglePopup, 
-    crearUserDocumentFromAuth, 
-    signInWithGoogleRedirect 
-} from "../../utils/firebase/firebase.utils";
+import { SignContainer }from './authentication.styles.jsx'
 
 const Authentication = () => {
     // ## This piece of code is to use when using google redirect, maintain the user information with the reloading of the page##
@@ -22,10 +15,10 @@ const Authentication = () => {
     // }, [])
 
     return (
-        <div className='sign-container'>
+        <SignContainer>
             <SignInForm />
             <SignUpForm />
-        </div>
+        </SignContainer>
     );
 };
 
