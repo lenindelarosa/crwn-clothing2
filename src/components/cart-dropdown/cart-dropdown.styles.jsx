@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { BaseButton } from '../button/button.styles';
 
 export const CartDropdownContainer = styled.div`
   position: absolute;
@@ -13,7 +14,7 @@ export const CartDropdownContainer = styled.div`
   right: 40px;
   z-index: 5;    
   
-  button {
+  ${BaseButton} {
     margin-top: auto;
   }
 `;
@@ -23,4 +24,9 @@ export const CartItems = styled.div`
   display: flex;
   flex-direction: column;
   overflow: auto;  
+`;
+
+export const EmtpyMessage = styled.span`
+  font-size: 18px;
+  margin: 50px auto;
 `;

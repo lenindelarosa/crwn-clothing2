@@ -11,9 +11,7 @@ const DirectoryItem = ({ category }) => {
 
     return (
       <DirectoryItemContainer onClick={selectCategoryHandler} >
-        <BackgroundImage style={{
-          backgroundImage: `url(${imageUrl})`
-        }}/>
+        <BackgroundImage imageUrl={imageUrl}/>
         <Body>
           <h2>{title}</h2>
           <p>SHOP NOW</p>

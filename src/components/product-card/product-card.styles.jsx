@@ -42,12 +42,14 @@ export const FooterContainer = styled.div`
   justify-content: space-between;
   font-size: 18px;
 
-  .name {
-    width: 90%;
-    margin-bottom: 15px;
-  }
 
-  .price {
-    width: 10%;
-  }  
+`;  
+
+export const Name = styled.span`
+  width: 90%;
+  margin-bottom: 15px;  
+`;
+
+export const Price = styled.span`
+  width: 10%;  
 `;
