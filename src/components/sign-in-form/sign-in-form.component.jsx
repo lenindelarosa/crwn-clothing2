@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "../button/button.component";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
 import { 
     signInWithAccount, 
     signInWithGooglePopup, 
@@ -60,8 +60,8 @@ const SignInForm = () => {
             <FormInput label="Email" type="email" required onChange={onChangeHandler} name="email" value={email}/>
             <FormInput label="Password" type="password" required onChange={onChangeHandler} name="password" value={password}/>
             <ButtonsContainer>
-                <Button type="submit">Sign In</Button>
-                <Button type="button" onClick={signInWithGoogle} buttonType="google">Google Sign In</Button>
+                <Button type="submit" buttonType={BUTTON_TYPE_CLASSES.base}>Sign In</Button>
+                <Button type="button" onClick={signInWithGoogle} buttonType={BUTTON_TYPE_CLASSES.google}>Google Sign In</Button>
             </ButtonsContainer>
         </form>
     </SignInContainer>
